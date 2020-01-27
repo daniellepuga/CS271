@@ -14,4 +14,8 @@ CHIP HalfAdder {
 
     PARTS:
     // Put you code here:
+	DMux(in=a, sel=b, a=DMuxAB, b=carry);
+	Not(in=a, out=nota);
+	And(a=nota, b=b, out=notaAndb);
+	Or(a=notaAndb, b=DMuxAB, out=sum);
 }
