@@ -7,27 +7,25 @@
 // (R0, R1, R2 refer to RAM[0], RAM[1], and RAM[2], respectively.)
 
 // Put your code here.
-@sum
-M=0
-@R1
-D=M
-@count
-M=D
-(LOOP)
-@count
-D=M
-@END
-D;JEQ
-@R0
-D=M
-@sum
-M=M+D
-@count
-M=M-1
-@LOOP
-0;JMP
-(END)
-@sum
-D=M
 @R2
-M=D
+  M=0
+  @R0
+  D=M
+  @count
+  M=D
+(LOOP)
+  @count
+  D=M // D=count
+  @END
+  D;JEQ
+  @R1
+  D=M
+  @R2
+  M=D+M
+  @count
+  M=M-1
+  @LOOP
+  0;JMP
+(END)
+  @END
+  0;JMP
